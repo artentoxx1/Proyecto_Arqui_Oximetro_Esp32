@@ -11,6 +11,7 @@
         <h1>ESP32 Web Server</h1>
         <p>Sensor MAX30102</p>
     </header>
+   
     <table>
         <tbody>
             <tr>
@@ -18,15 +19,16 @@
                     <a href="/update"><button class="ButtonR Button">
                         <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i> BPM
                     </button></a>
-                </td>
-                <td>
-                    <strong> """+ str(beats) +""" </strong>                   
-                </td>
+                </td> 
                 <td>                    
                     <meter id="fuel" min="0" max="200" low="59" high="100" optimum="60" value=" @@""" + str(beats) +""" @@">
                         at 50/100
                     </meter>
                 </td>
+                <td>
+                    <strong> """+ str(beats) +""" </strong>                   
+                </td>
+
             </tr>
             <tr>
                 <td>
@@ -34,17 +36,20 @@
                                 <i class="fa fa-thermometer-quarter fa-2x" aria-hidden="true"></i> Temp.
                             </button></a></p>
                 </td>
-                <td>
-                    <strong> """+ str(round(sensor.read_temperature(),2)) +""" &#176;C</strong>                   
-                </td>
                 <td>                    
                     <meter id="fuel" min="0" max="100" low="20" high="40" optimum="30" value=" @@""" + str(round(sensor.read_temperature(),2)) +""" @@">
                         at 50/100
                     </meter>
                 </td>
+                <td>
+                    <strong> """+ str(round(sensor.read_temperature(),2)) +""" &#176;C</strong>                   
+                </td>
+                
             </tr>            
         </tbody>
     </table>
+ 
+    
 
     <!-- Formulario para recolectar datos -->
     <h2 class="center">Enviar Datos</h2>
