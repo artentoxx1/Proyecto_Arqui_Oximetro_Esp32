@@ -1,92 +1,23 @@
+
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESP32 Web Server</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Vincula el archivo CSS -->
     <link rel="icon" href="data:,">
-    <style>
-        meter {
-            -webkit-writing-mode: horizontal-tb !important;
-            appearance: auto;
-            box-sizing: border-box;
-            display: inline-block;
-            height: 3em;
-            width: 13em;
-            vertical-align: -1.0em;
-            -webkit-user-modify: read-only !important;
-        }
-        html {
-            font-family: Helvetica;
-            display: inline-block;
-            margin: 0px auto;
-            text-align: center;
-        }
-        h1 {
-            color: #0F3376;
-            padding: 2vh;
-        }
-        p {
-            font-size: 1.5rem;
-        }
-        table {
-            margin: auto;
-        }
-        td {
-            padding: 3px;           
-        }
-        .Button {
-            border-radius: 31px;
-            display: inline-block;
-            cursor: pointer;
-            color: #ffffff;
-            font-family: Arial;
-            font-size: 10px;
-            font-weight: bold;
-            font-style: italic;
-            padding: 4px 5px;
-            text-decoration: none;
-        }
-        .ButtonR {
-            background-color: #ec5449;
-            border: 3px solid #991f1f;
-            text-shadow: 0px 2px 2px #47231e;
-        }
-        .ButtonR:hover {
-            background-color: #f54a16;
-        }
-        .Button:active {
-            position: relative;
-            top: 1px;
-        }
-        .ButtonG {
-            background-color: #49ece4;
-            border: 3px solid #1f8b99;
-            text-shadow: 0px 2px 2px #1e3b47;
-        }
-        .ButtonG:hover {
-            background-color: #16b6f5;
-        }
-        .ButtonB {
-            background-color: #4974ec;
-            border: 3px solid #1f3599;
-            text-shadow: 0px 2px 2px #1e2447;
-        }
-        .ButtonB:hover {
-            background-color: #165df5;
-        }
-    </style>
 </head>
 <body>
-    <h1>ESP32 Web Server</h1>
-    <p>Sensor MAX30102</p>
+    <header>
+        <h1>ESP32 Web Server</h1>
+        <p>Sensor MAX30102</p>
+    </header>
     <table>
         <tbody>
             <tr>
                 <td>
-                    <p class="center">
-                        <a href="/update"><button class="ButtonR Button">
-                                <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i> BPM
-                            </button></a>
-                    </p>
+                    <a href="/update"><button class="ButtonR Button">
+                        <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i> BPM
+                    </button></a>
                 </td>
                 <td>
                     <strong> """+ str(beats) +""" </strong>                   
@@ -114,11 +45,19 @@
             </tr>            
         </tbody>
     </table>
+
+    <!-- Formulario para recolectar datos -->
+    <h2 class="center">Enviar Datos</h2>
+    <form action="process_data.php" method="post">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="email">Correo Electrónico:</label>
+        <input type="text" id="email" name="email" required>
+        <br><br>
+        <label for="email">DNI:</label>
+        <input type="text" id="dni" name="dni" required>
+        <br><br>
+    </form>
 </body>
-<script>
-    setInterval(updateValues, 2000);
-    function updateValues() {
-        location.reload(); 
-    }
-</script>
-</html> 
+</html>

@@ -14,8 +14,8 @@ esp.osdebug(None)
 import gc
 gc.collect()
 
-ssid = 'ssid'
-password = 'password'
+ssid = 'ssid'#aqui se pondra el id de la red a la que se conectara el ESP32 con su wifi integrado
+password = 'password'#su contraseña del wifi
 
 station = network.WLAN(network.STA_IF)
 
